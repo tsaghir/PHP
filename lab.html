@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dog object</title>
+    <script src="validator.js"></script>
+    <script src="get_breeds.js"></script>
+    <style type="text/css">
+        #JS {
+            display: none;
+        }
+    </style>
+    <script>
+        function checkJS() {
+            document.getElementById("JS").style.display = "inline";
+        }
+    </script>
+</head>
+
+<body onload="checkJS();">
+    <h1>Dog Object creater</h1>
+    <div id="JS">
+        <form method="POST" action="dog_interface.php" onsubmit="return validate_input(this)">
+            <h2>Please complete ALL fields. Please note the required format of information.</h2>
+            Your Dog's Name (max characters, alphabetic)
+            <input type="text" pattern="[a-zA-Z ]*" title="Up to 20 characters" maxlength="20" name="dog_name" id="dog_name" /></br></br>
+            Select Your Dog's Color:<br/>
+            <input type="radio" name="dog_color" id="dog_color" value="Brown">Brown</br>
+            <input type="radio" name="dog_color" id="dog_color" value="Black">Black</br>
+            <input type="radio" name="dog_color" id="dog_color" value="Yellow">Yellow</br>
+            <input type="radio" name="dog_color" id="dog_color" value="White">White</br>
+            <input type="radio" name="dog_color" id="dog_color" value="Mixed">Mixed</br>
+            Your Dog's Weight (numeric)
+            <input type="number" min="1" max="120" name="dog_weight" id="dog_weight" /><br></br>
+
+            <div id="AjaxResponse">
+                <script>
+                    AjaxRequest('dog_interface.php');
+                </script>
+            </div><br/>
+            <input type="submit" value="Click to create your dog">
+        </form>
+    </div>
+    <noscript>
+        <div id="noJS">
+            <form method="POST" action="lab.php">
+                <h2>Please complete ALL fields. Please note the required format of information.</h2>
+                Your Dog's Name (max characters, alphabetic)
+                <input type="text" pattern="[a-zA-Z ]*" title="Up to 20 characters" maxlength="20" name="dog_name" id="dog_name" /></br>
+                Select Your Dog's Color:<br/>
+                <input type="radio" name="dog_color" id="dog_color" value="Brown">Brown</br>
+                <input type="radio" name="dog_color" id="dog_color" value="Black">Black</br>
+                <input type="radio" name="dog_color" id="dog_color" value="Yellow">Yellow</br>
+                <input type="radio" name="dog_color" id="dog_color" value="White">White</br>
+                <input type="radio" name="dog_color" id="dog_color" value="Mixed">Mixed</br>
+                Your Dog's Breed (max characters, alphabetic)
+                <input type="text" pattern="[a-zA-Z]*" title="Up to 15 characters" maxlength="15" name="dog_color" id="dog_color" /></br>
+                Your Dog's Weight (max characters, alphabetic)
+                <input type="number" min="1" max="120" name="dog_weight" id="dog_weight" /></br>
+                <input type="submit" value="Click to create your dog">
+            </form>
+        </div>
+    </noscript>
+</body>
+
+</html>
